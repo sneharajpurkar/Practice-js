@@ -137,6 +137,30 @@ function addProduct(event){
 
 }
 
-function addToCart(){
+function singleProduct(single){
+    alert("done")
+    var single_product = JSON.stringify(single);
+    localStorage.setItem("f_currunt_product", single_product)
+    window.location.href = "/ShowProduct.html";
+}
+
+function addToCart(product) {
+
+    var dataFromLS = JSON.parse(localStorage.getItem("flipkartData"));
+    var f_currentUser = JSON.parse(localStorage.getItem("flipkart_Currunt_User"));
+    console.log(dataFromLS, "dataFromLS");
+
+    for(var i=0;i< dataFromLS.length;i++){
+        if(f_currentUser.email == dataFromLS[i].email){
+            if(dataFromLS[i].cartProducts == undefined){
+                dataFromLS[i].cartProducts = [product];
+            } else {
+                dataFromLS[i].cartProducts.push(product);
+            }
+            alert("Product added to cart");
+        }
+    }
+    localStorage.setItem("flipkartData", JSON.stringify(dataFromLS));
     
+    window.location.href = "/Cart.html";
 }

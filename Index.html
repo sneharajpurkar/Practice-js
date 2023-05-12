@@ -149,10 +149,11 @@
         #product1 {
             border: 1px solid black;
             width: 18%;
-            height: 45vh;  
-            text-align: center; 
+            height: 45vh;
+            text-align: center;
         }
-        #product1>img{
+
+        #product1>img {
             margin-top: 10px;
             height: 32vh;
             width: 75%;
@@ -214,15 +215,13 @@
             var f_product = [];
 
             for (var i = 0; i < f_currunt_product.length; i++) {
-                f_product += `<div id="product1">
+                f_product += `<div onclick='singleProduct(${JSON.stringify(f_currunt_product[i])})' id="product1">
                     <img src="${f_currunt_product[i].image}"/>
                     <h2>${f_currunt_product[i].name}</h2>
                     <h4>₹${f_currunt_product[i].price}</h4>
-                    <button onclick="addToCart()">Add To Cart<button/>
                     </div>`
             }
             currunt_product.innerHTML = f_product;
-
         }
     </script>
 </body>

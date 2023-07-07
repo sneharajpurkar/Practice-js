@@ -136,7 +136,7 @@
         #homepage {
             width: 100%;
             height: 100vh;
-            border: 2px solid red;
+            /* border: 2px solid red; */
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -147,7 +147,7 @@
         }
 
         #product1 {
-            border: 1px solid black;
+            border: 1px solid gainsboro;
             width: 18%;
             height: 45vh;
             text-align: center;
@@ -214,6 +214,7 @@
             var f_currunt_product = JSON.parse(localStorage.getItem("seller-products"));
             var f_product = [];
 
+            
             for (var i = 0; i < f_currunt_product.length; i++) {
                 f_product += `<div onclick='singleProduct(${JSON.stringify(f_currunt_product[i])})' id="product1">
                     <img src="${f_currunt_product[i].image}"/>
